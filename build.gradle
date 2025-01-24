@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.12'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring WebFlux
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // AWS SDK for DynamoDB
+    implementation 'software.amazon.awssdk:dynamodb:2.20.26'
+
+    implementation 'software.amazon.awssdk:dynamodb-enhanced:2.20.60'
+
+    // Lombok (opcional)
+    compileOnly 'org.projectlombok:lombok:1.18.30' // Última versión a partir de marzo de 2024
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // AWS SDK Apache HTTP client
+    implementation 'software.amazon.awssdk:http-client-spi:2.20.26'
+
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final' // Usar la versión más reciente
+
+    // Procesador de anotaciones para la compilación
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final' // Usar la versión más reciente
+
+    implementation 'org.reactivecommons.utils:object-mapper-api:0.1.0' // o la versión que estés usando
+    implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.reactivecommons.utils:object-mapper:0.1.0'
+}
+
+bootRun {
+    mainClass = 'org.example.HeroProjectApplication'
+}
+
